@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instrukce v pohybu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="cores.css" />
+    <link rel="stylesheet" href="two-cores.css" />
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="parallel.css" />
+    <link rel="stylesheet" href="cleanup.css" />
+    <link rel="stylesheet" href="slider-sizing.css" />
+    <link rel="stylesheet" href="core-cleanup.css" />
+    <link rel="stylesheet" href="threads.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <span>JAK PROCESOR PRACUJE</span>
+      </header>
+
+      <section class="frequency-panel" aria-label="Nastavení frekvence">
+        <div class="controls-row">
+          <div class="frequency-control">
+            <div class="frequency-head">
+              <div>
+                <p class="eyebrow">FREKVENCE PROCESORU</p>
+                <output id="frequencyValue">3,6 <small>GHz</small></output>
+              </div>
+            </div>
+            <input id="frequency" type="range" min="1.2" max="5.2" value="3.6" step="0.1" aria-label="Frekvence procesoru v GHz" />
+            <div class="range-labels"><span>1,2 GHz</span><span>5,2 GHz</span></div>
+          </div>
+          <div class="core-control">
+            <div class="core-control-head"><p class="eyebrow">POČET FYZICKÝCH JADER</p><output id="coreValue">1 <small>jádro</small></output></div>
+            <input id="coreCount" type="range" min="1" max="2" value="1" step="1" aria-label="Počet fyzických jader procesoru" />
+            <div class="core-range-labels"><span>1</span><span>2</span></div>
+          </div>
+          <div class="thread-control">
+            <div class="thread-control-head"><p class="eyebrow">HARDWAROVÁ VLÁKNA NA JÁDRO</p><output id="threadValue">1 <small>vlákno</small></output></div>
+            <input id="threadCount" type="range" min="1" max="2" value="2" step="1" aria-label="Počet hardwarových vláken na jádro" />
+            <div class="thread-range-labels"><span>1</span><span>2</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="visualisation" aria-label="Animace toku instrukcí">
+        <div class="instruction-flow" id="instructionFlow">
+          <section class="queue-wrap" aria-label="Příchozí instrukce">
+            <p class="flow-label">PŘÍCHOZÍ INSTRUKCE</p>
+            <div class="queue-frame"><div class="queue-list" id="queueList"></div></div>
+          </section>
+
+          <div class="flow-arrow" aria-hidden="true"></div>
+
+          <section class="processor-zone" aria-label="Procesor právě zpracovává instrukci">
+            <p class="flow-label">PROCESOR</p>
+            <div class="chip-shell" id="chipShell">
+              <div class="core-grid" id="coreGrid" aria-label="Aktivní jádra procesoru"></div>
+            </div>
+          </section>
+
+          <div class="flow-arrow" aria-hidden="true"></div>
+
+          <section class="result-wrap" aria-label="Hotová instrukce">
+            <p class="flow-label">HOTOVO</p>
+            <div class="result-list" id="resultList"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
