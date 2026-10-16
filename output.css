@@ -1,1 +1,0 @@
-.completed-card{position:fixed;z-index:12;padding:12px 10px;background:#dff7f3;color:#217f7d;border-left:3px solid #52cfcb;font:500 10px 'DM Mono';white-space:nowrap;box-shadow:0 5px 16px #1d26322e;pointer-events:none;transition:transform calc(var(--motion) * .52) cubic-bezier(.25,.8,.3,1),opacity calc(var(--motion) * .52) ease}
